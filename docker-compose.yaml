@@ -76,6 +76,10 @@ services:
 
   zammad-nginx:
     <<: *zammad-service
+    environment:
+      NGINX_SERVER_SCHEME: http
+      VIRTUAL_HOST: ${VHOST:-ticket.xoose.eu}
+      LETSENCRYPT_HOST: ${LE_HOST:-support.domain.tld}
     command: ["zammad-nginx"]
     expose:
       - "${NGINX_PORT:-8080}"
