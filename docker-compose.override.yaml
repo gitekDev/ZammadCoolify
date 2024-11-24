@@ -1,5 +1,6 @@
 zammad-nginx:
     environment:
+        NGINX_SERVER_SCHEME: http
       VIRTUAL_HOST: ${VHOST:-ticket.xoose.eu}
       LETSENCRYPT_HOST: ${LE_HOST:-support.domain.tld}
     <<: *zammad-service
